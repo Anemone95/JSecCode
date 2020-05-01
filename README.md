@@ -29,6 +29,8 @@ npm run dev
 
 ### 部署后端
 
+部署前先用 `node_sec_code.sql` 建库建表呀
+
 ```bash
 cd backend
 npm i

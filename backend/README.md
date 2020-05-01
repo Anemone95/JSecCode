@@ -1,14 +1,8 @@
 # backend
 
-
-
-## QuickStart
-
-<!-- add docs here for user -->
-
-see [egg docs][egg] for more detail.
-
 ### Development
+
+Please launch `node_sec_code.sql` to create database at first.
 
 ```bash
 $ npm i
