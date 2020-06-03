@@ -12,8 +12,9 @@
 * Path Traversal
 * RCE
 * SSRF
-* URL Redirect（TODO）
+* URL Redirect
 * BAC（TODO）
+* 原型链污染（TODO）
 
 ## 安装和部署
 
