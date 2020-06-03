@@ -36,7 +36,7 @@ module.exports = appInfo => {
       // 因为前后端分离，所以csrftoken放在session中，前端通过csrftoken请求来获取token
       useSession: true,
       // 忽略某些url
-      ignore: ctx => ctx.request.url.startsWith('/api/csrf'),
+      ignore: ctx => ctx.request.url.startsWith('/api/csrf') || ctx.request.url.startsWith('/api/user/login'),
       headerName: 'X-CSRF-TOKEN',
     },
   };
@@ -61,6 +61,10 @@ module.exports = appInfo => {
     app: true,
     // 是否加载到 agent 上，默认关闭
     agent: false,
+  };
+  config.middleware = [ 'auth' ];
+  config.auth = {
+    match: '/api',
   };
 
   return {

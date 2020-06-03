@@ -14,6 +14,8 @@
     <router-link :to="{name:'RCE'}">RCE</router-link>
     <br/>
     <router-link :to="{name:'SSRF'}">SSRF</router-link>
+    <br/>
+    <router-link :to="{name:'URLRedirect'}">URL Redirect</router-link>
     <hr>
     <router-view/>
   </div>

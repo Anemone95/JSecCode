@@ -2,18 +2,21 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import Login from '@/components/Login'
-import SQLi from'@/components/sqli/SQLi'
-import Where from'@/components/sqli/Where'
-import Insert from'@/components/sqli/Insert'
-import Delete from'@/components/sqli/Delete'
-import XSS from'@/components/xss/XSS'
-import ReflectXSSBackend from'@/components/xss/ReflectXSSBackend'
-import ReflectXSSFront from'@/components/xss/ReflectXSSFront'
-import StoredXSS from'@/components/xss/StoredXSS'
-import CSRF from'@/components/CSRF'
-import PathTraversal from "../components/PathTraversal";
-import RCE from "../components/RCE";
-import SSRF from "../components/SSRF";
+import SQLi from '@/components/sqli/SQLi'
+import Where from '@/components/sqli/Where'
+import Insert from '@/components/sqli/Insert'
+import Delete from '@/components/sqli/Delete'
+import XSS from '@/components/xss/XSS'
+import ReflectXSSBackend from '@/components/xss/ReflectXSSBackend'
+import ReflectXSSFront from '@/components/xss/ReflectXSSFront'
+import StoredXSS from '@/components/xss/StoredXSS'
+import CSRF from '@/components/CSRF'
+import PathTraversal from "@/components/PathTraversal";
+import RCE from "@/components/RCE";
+import SSRF from "@/components/SSRF";
+import URLRedirect from "@/components/urlredirect/URLRedirect";
+import URLRedirectFrontend from "@/components/urlredirect/Frontend";
+import URLRedirectBackend from "@/components/urlredirect/Backend";
 
 Vue.use(Router)
 
@@ -88,5 +91,23 @@ export default new Router({
       name: 'SSRF',
       component: SSRF,
     }
+    ,
+    {
+      path: '/url',
+      name: 'URLRedirect',
+      component: URLRedirect,
+      children: [
+        {
+          path: '/url/frontend',
+          name: 'URLRedirectFrontend',
+          component: URLRedirectFrontend
+        },
+        {
+          path: '/xss/backend',
+          name: 'URLRedirectBackend',
+          component: URLRedirectBackend
+        }
+      ]
+    },
   ]
 })
