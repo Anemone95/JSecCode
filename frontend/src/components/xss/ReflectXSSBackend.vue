@@ -35,6 +35,8 @@
           params: {xss: this.$route.query.xss}
         }).then(res => {
           this.echoValue = res.data.msg;
+        }).catch(err => {
+          alert(err);
         })
       }
     }

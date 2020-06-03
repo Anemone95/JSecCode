@@ -18,4 +18,9 @@ module.exports = app => {
   router.get('/api/path/:file', controller.pathtraversal.file);
   router.get('/api/rce/ping', controller.rce.ping);
   router.get('/api/ssrf/get', controller.ssrf.get);
+  router.get('/api/urlredirect', controller.urlredirect.unsafe);
+  router.get('/api/urlredirect/safe', controller.urlredirect.safe);
+  router.post('/api/user/login', controller.user.login);
+  router.get('/api/user/islogin', controller.user.isLogin);
+  router.get('/api/user/logout', controller.user.logout);
 };
