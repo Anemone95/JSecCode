@@ -40,7 +40,7 @@ npm run dev
 
 在hosts中加一个`backend.nodeseccode`的记录
 
-访问`http://frontend.nodeseccode:8080/`看到靶场主页（登录目前还没做）
+访问`http://frontend.nodeseccode:8080/`看到靶场主页
 
 ## 相关项目
 
