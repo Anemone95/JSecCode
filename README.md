@@ -7,6 +7,7 @@
 ## 包含漏洞
 
 * SQLi
+* NoSQLi(MongoDB)
 * XSS
 * CSRF
 * Path Traversal
@@ -26,21 +27,23 @@ npm install
 npm run dev
 ```
 
-在hosts中加一个`frontend.nodeseccode`的记录
+在hosts中加一个`frontend.nodeseccode.net`的记录
 
 ### 部署后端
 
-部署前先用 `node_sec_code.sql` 建库建表呀
+1. 安装并启动MySQL
+2. 安装并启动MongoDB
+3. 用 `node_sec_code.sql` 建库建表
+4. 启动后端服务
+    ```bash
+    cd backend
+    npm i
+    npm run dev
+    ```
 
-```bash
-cd backend
-npm i
-npm run dev
-```
+5. 在hosts中加一个`backend.nodeseccode.net`的记录
 
-在hosts中加一个`backend.nodeseccode`的记录
-
-访问`http://frontend.nodeseccode:8080/`看到靶场主页
+6. 访问`http://frontend.nodeseccode.net:8080/`看到靶场主页
 
 ## 相关项目
 

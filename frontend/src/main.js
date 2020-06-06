@@ -7,7 +7,7 @@ import router from './router'
 
 Vue.config.productionTip = false;
 
-Axios.defaults.baseURL='http://backend.nodeseccode:7001/api/';
+Axios.defaults.baseURL='http://backend.nodeseccode.net:7001/api/';
 Axios.defaults.withCredentials = true;
 Vue.prototype.$axios=Axios;
 /* eslint-disable no-new */

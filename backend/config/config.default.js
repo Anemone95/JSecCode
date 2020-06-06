@@ -31,16 +31,17 @@ module.exports = appInfo => {
   // };
   //
   config.security = {
-    domainWhiteList: [ 'http://frontend.nodeseccode:8080', 'http://frontend.nodeseccode' ],
+    domainWhiteList: [ 'http://frontend.nodeseccode.net:8080', 'http://frontend.nodeseccode.net' ],
     csrf: {
       // 因为前后端分离，所以csrftoken放在session中，前端通过csrftoken请求来获取token
       useSession: true,
-      // 忽略某些url
+      // CSRF白名单
       ignore: ctx => ctx.request.url.startsWith('/api/csrf') || ctx.request.url.startsWith('/api/user/login'),
       headerName: 'X-CSRF-TOKEN',
     },
   };
   config.cors = {
+    // origin: 'http://nodeseccode.net:8080',
     credentials: true,
   };
   config.mysql = {
@@ -65,6 +66,14 @@ module.exports = appInfo => {
   config.middleware = [ 'auth' ];
   config.auth = {
     match: '/api',
+  };
+  config.mongoose = {
+    client: {
+      url: 'mongodb://127.0.0.1/nodeseccode',
+      options: {},
+      // mongoose global plugins, expected a function or an array of function and options
+      // plugins: [ createdPlugin, [ updatedPlugin, pluginOptions ] ],
+    },
   };
 
   return {

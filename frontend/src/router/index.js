@@ -6,6 +6,7 @@ import SQLi from '@/components/sqli/SQLi'
 import Where from '@/components/sqli/Where'
 import Insert from '@/components/sqli/Insert'
 import Delete from '@/components/sqli/Delete'
+import NoSQLi from '@/components/NoSQLi'
 import XSS from '@/components/xss/XSS'
 import ReflectXSSBackend from '@/components/xss/ReflectXSSBackend'
 import ReflectXSSFront from '@/components/xss/ReflectXSSFront'
@@ -48,6 +49,11 @@ export default new Router({
           component: Delete
         },
       ]
+    },
+    {
+      path: '/nosqli',
+      name: 'NoSQLi',
+      component: NoSQLi,
     },
     {
       path: '/xss',

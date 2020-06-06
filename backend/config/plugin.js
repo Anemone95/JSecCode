@@ -14,4 +14,8 @@ module.exports = {
     enable: true,
     package: 'egg-mysql',
   },
+  mongoose: {
+    enable: true,
+    package: 'egg-mongoose',
+  },
 };
