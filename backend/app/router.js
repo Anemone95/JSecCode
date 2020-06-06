@@ -14,6 +14,8 @@ module.exports = app => {
   router.get('/api/sqli/int/:id', controller.sqli.integer);
   router.post('/api/sqli/insert', controller.sqli.insert);
   router.delete('/api/sqli/msg', controller.sqli.delete);
+  router.post('/api/nosqli/userdetail', controller.nosqli.getDetail);
+  router.get('/api/nosqli/username', controller.nosqli.getUsername);
   router.delete('/api/csrf/msg', controller.csrf.delete);
   router.get('/api/path/:file', controller.pathtraversal.file);
   router.get('/api/rce/ping', controller.rce.ping);

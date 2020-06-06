@@ -9,8 +9,14 @@ module.exports = () => {
     if (ctx.session.user) {
       await next();
     } else {
-      // 排除不需要做杼判断的页面
-      if (pathname === '/api/user/login' || pathname === '/api/user/islogin' || pathname === '/api/csrftoken') {
+      // 未登录白名单
+      if (pathname === '/api/user/login' || pathname === '/api/user/islogin' || pathname === '/api/csrftoken'
+        || pathname.startsWith('/api/nosqli')
+        || pathname.startsWith('/api/path')
+        || pathname.startsWith('/api/rce')
+        || pathname.startsWith('/api/ssrf')
+        || pathname.startsWith('/api/urlredirect')
+      ) {
         await next();
       } else {
         ctx.throw(403, 'Unauthorized');

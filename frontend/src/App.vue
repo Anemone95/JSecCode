@@ -5,6 +5,8 @@
     <br/>
     <router-link :to="{name:'SQLi'}">SQLi</router-link>
     <br/>
+    <router-link :to="{name:'NoSQLi'}">NoSQLi</router-link>
+    <br/>
     <router-link :to="{name:'XSS'}">XSS</router-link>
     <br/>
     <router-link :to="{name:'CSRF'}">CSRF</router-link>
