@@ -1,6 +1,7 @@
 'use strict';
 
 const Controller = require('egg').Controller;
+const utils = require('../utils');
 
 class UserController extends Controller {
   async login() {
@@ -34,6 +35,33 @@ class UserController extends Controller {
     // const results = await this.app.mysql.query('select * from users where id = ?', ctx.params.id);
     ctx.session.user = null;
     ctx.body = { msg: 'ok' };
+  }
+
+  async username() {
+    const { ctx } = this;
+    if (ctx.session.user) {
+      ctx.body = { username: ctx.session.user.username };
+    } else {
+      ctx.body = { username: 'anonymous' };
+    }
+  }
+
+  async uid() {
+    const { ctx } = this;
+    if (ctx.session.user) {
+      ctx.body = { uid: ctx.session.user.id };
+    } else {
+      ctx.body = { uid: -1 };
+    }
+  }
+
+  async encryptedUsername() {
+    const { ctx } = this;
+    if (ctx.session.user) {
+      ctx.body = { username: utils.encryptUsername(ctx.session.user.username, this.app) };
+    } else {
+      ctx.body = { username: utils.encryptUsername('anonymous', this.app) };
+    }
   }
 }
 

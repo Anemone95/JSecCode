@@ -1,5 +1,6 @@
 'use strict';
 
+
 module.exports = app => {
   const mongoose = app.mongoose;
   const Schema = mongoose.Schema;
@@ -37,6 +38,7 @@ function initUserData(user, app) {
       console.log('Init user failed');
     } else if (!doc.length) {
       console.log('Writing init data');
+
       app.mysql.select('users')
         .then(users => {
           users.forEach(u => {

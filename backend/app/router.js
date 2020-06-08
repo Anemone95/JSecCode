@@ -15,14 +15,17 @@ module.exports = app => {
   router.post('/api/sqli/insert', controller.sqli.insert);
   router.delete('/api/sqli/msg', controller.sqli.delete);
   router.post('/api/nosqli/userdetail', controller.nosqli.getDetail);
-  router.get('/api/nosqli/username', controller.nosqli.getUsername);
   router.delete('/api/csrf/msg', controller.csrf.delete);
   router.get('/api/path/:file', controller.pathtraversal.file);
   router.get('/api/rce/ping', controller.rce.ping);
   router.get('/api/ssrf/get', controller.ssrf.get);
   router.get('/api/urlredirect', controller.urlredirect.unsafe);
   router.get('/api/urlredirect/safe', controller.urlredirect.safe);
+  router.get('/api/bac/userdetail', controller.bac.getDetail);
   router.post('/api/user/login', controller.user.login);
   router.get('/api/user/islogin', controller.user.isLogin);
   router.get('/api/user/logout', controller.user.logout);
+  router.get('/api/user/username', controller.user.username);
+  router.get('/api/user/uid', controller.user.uid);
+  router.get('/api/user/encryptedusername', controller.user.encryptedUsername);
 };

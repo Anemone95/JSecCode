@@ -10,16 +10,10 @@ module.exports = () => {
       await next();
     } else {
       // 未登录白名单
-      if (pathname === '/api/user/login' || pathname === '/api/user/islogin' || pathname === '/api/csrftoken'
-        || pathname.startsWith('/api/nosqli')
-        || pathname.startsWith('/api/path')
-        || pathname.startsWith('/api/rce')
-        || pathname.startsWith('/api/ssrf')
-        || pathname.startsWith('/api/urlredirect')
-      ) {
-        await next();
-      } else {
+      if (pathname.startsWith('/api/bac')) {
         ctx.throw(403, 'Unauthorized');
+      } else {
+        await next();
       }
     }
   };

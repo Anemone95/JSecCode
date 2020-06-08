@@ -1,10 +1,12 @@
 <template>
   <div>
-    <p>NoSQLi注入（可尝试查询anemone）, payload(repeat in burp): {"name":{"$ne": null}} </p>
+    <p>NoSQLi注入, payload(repeat in burp): {"name":{"$ne": null}} </p>
+    <br>
+    <p>Encrypted Username</p>
     <input v-model="username">
     <button v-on:click="query">Query</button>
     <p v-for="user in users">
-      {{user.username}}::{{user.tel.substring(0,4)+"****"}}::{{user.bankcard.substring(0,4)+"****"}}</p>
+      {{user.username}}::{{user.tel}}::{{user.bankcard}}</p>
   </div>
 </template>
 
@@ -18,13 +20,13 @@
       }
     },
     created() {
-      this.query();
+      this.$axios.get(`user/encryptedusername`).then(res => {
+        this.username = res.data.username;
+        this.query();
+      });
     },
     methods: {
       query() {
-        this.$axios.get(`nosqli/username`).then(res => {
-          this.username = res.username;
-        });
         this.$axios.post(`nosqli/userdetail`, {name: this.username}, {
           headers: {
             "X-CSRF-TOKEN": sessionStorage.getItem('csrfToken')
