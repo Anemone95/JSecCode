@@ -18,6 +18,7 @@ import SSRF from "@/components/SSRF";
 import URLRedirect from "@/components/urlredirect/URLRedirect";
 import URLRedirectFrontend from "@/components/urlredirect/Frontend";
 import URLRedirectBackend from "@/components/urlredirect/Backend";
+import BAC from "@/components/BAC";
 
 Vue.use(Router)
 
@@ -96,8 +97,7 @@ export default new Router({
       path: '/ssrf',
       name: 'SSRF',
       component: SSRF,
-    }
-    ,
+    },
     {
       path: '/url',
       name: 'URLRedirect',
@@ -114,6 +114,11 @@ export default new Router({
           component: URLRedirectBackend
         }
       ]
+    },
+    {
+      path: '/bac',
+      name: 'BAC',
+      component: BAC,
     },
   ]
 })

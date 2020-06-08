@@ -1,6 +1,7 @@
 /* eslint valid-jsdoc: "off" */
 
 'use strict';
+const Crypto = require('crypto');
 
 /**
  * @param {Egg.EggAppInfo} appInfo app info
@@ -21,6 +22,7 @@ module.exports = appInfo => {
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
+    key: Crypto.randomBytes(16),
   };
 
   // config.cors = {
