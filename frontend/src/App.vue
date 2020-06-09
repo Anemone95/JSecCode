@@ -20,6 +20,8 @@
     <router-link :to="{name:'URLRedirect'}">URL Redirect</router-link>
     <br/>
     <router-link :to="{name:'BAC'}">BAC(Bad Access Control)</router-link>
+    <br/>
+    <router-link :to="{name:'Prototype'}">Prototype</router-link>
     <hr>
     <router-view/>
   </div>

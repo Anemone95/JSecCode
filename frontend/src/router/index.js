@@ -19,6 +19,9 @@ import URLRedirect from "@/components/urlredirect/URLRedirect";
 import URLRedirectFrontend from "@/components/urlredirect/Frontend";
 import URLRedirectBackend from "@/components/urlredirect/Backend";
 import BAC from "@/components/BAC";
+import Prototype from "@/components/prototype/Prototype";
+import SimpleProto from "@/components/prototype/SimpleProto";
+import Lodash from "@/components/prototype/Lodash";
 
 Vue.use(Router)
 
@@ -119,6 +122,23 @@ export default new Router({
       path: '/bac',
       name: 'BAC',
       component: BAC,
+    },
+    {
+      path: '/prototype',
+      name: 'Prototype',
+      component: Prototype,
+      children: [
+        {
+          path: '/prototype/simple',
+          name: 'SimpleProto',
+          component: SimpleProto
+        },
+        {
+          path: '/prototype/Lodash',
+          name: 'Lodash',
+          component: Lodash
+        }
+      ]
     },
   ]
 })

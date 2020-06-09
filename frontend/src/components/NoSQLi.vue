@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>NoSQLi注入, payload(repeat in burp): {"name":{"$ne": null}} </p>
+    <p>NoSQLi注入, payload(request in burp): {"name":{"$ne": null}} </p>
     <br>
     <p>Encrypted Username</p>
     <input v-model="username">

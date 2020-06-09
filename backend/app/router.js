@@ -22,6 +22,8 @@ module.exports = app => {
   router.get('/api/urlredirect', controller.urlredirect.unsafe);
   router.get('/api/urlredirect/safe', controller.urlredirect.safe);
   router.get('/api/bac/userdetail', controller.bac.getDetail);
+  router.post('/api/prototype/simple', controller.proto.simple.echo);
+  router.post('/api/prototype/lodash', controller.proto.lodash.echo);
   router.post('/api/user/login', controller.user.login);
   router.get('/api/user/islogin', controller.user.isLogin);
   router.get('/api/user/logout', controller.user.logout);
