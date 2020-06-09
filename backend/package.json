@@ -12,7 +12,8 @@
     "egg-mongoose": "^3.2.0",
     "egg-mysql": "^3.0.0",
     "egg-scripts": "^2.11.0",
-    "egg-security": "^2.7.1"
+    "egg-security": "^2.7.1",
+    "lodash": "4.17.4"
   },
   "devDependencies": {
     "autod": "^3.0.1",
