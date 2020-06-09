@@ -14,8 +14,8 @@
 * RCE
 * SSRF
 * URL Redirect
-* BAC（TODO）
-* 原型链污染（TODO）
+* BAC
+* 原型链污染
 
 ## 安装和部署
 
