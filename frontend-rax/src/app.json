@@ -3,9 +3,37 @@
     {
       "path": "/",
       "source": "pages/Home/index"
+    },
+    {
+      "path": "/xss",
+      "source": "pages/XSS/reflectxss"
+    },
+    {
+      "path": "/urlredirect",
+      "source": "pages/URLRedirect/urlredirect_frontend"
     }
   ],
-  "window": {
-    "title": "Rax App"
+  "tabBar": {
+    "textColor": "#999",
+    "selectedColor": "#666",
+    "backgroundColor": "#f8f8f8",
+    "items": [
+      {
+        "name": "home",
+        "path": "/",
+        "icon": "https://gw.alicdn.com/tfs/TB1ypSMTcfpK1RjSZFOXXa6nFXa-144-144.png",
+        "activeIcon": "https://gw.alicdn.com/tfs/TB1NBiCTgHqK1RjSZFPXXcwapXa-144-144.png"
+      },{
+        "name": "reflectxss",
+        "path": "/xss?q=1",
+        "icon": "https://gw.alicdn.com/tfs/TB1ypSMTcfpK1RjSZFOXXa6nFXa-144-144.png",
+        "activeIcon": "https://gw.alicdn.com/tfs/TB1NBiCTgHqK1RjSZFPXXcwapXa-144-144.png"
+      },{
+        "name": "url redirect",
+        "path": "/urlredirect?url=https://www.baidu.com/",
+        "icon": "https://gw.alicdn.com/tfs/TB1ypSMTcfpK1RjSZFOXXa6nFXa-144-144.png",
+        "activeIcon": "https://gw.alicdn.com/tfs/TB1NBiCTgHqK1RjSZFPXXcwapXa-144-144.png"
+      }
+    ]
   }
 }
