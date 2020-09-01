@@ -1,20 +1,39 @@
 import React from 'react';
 import '../App.css';
 import {RouteComponentProps, withRouter} from 'react-router-dom';
+import SimpleURLRedirect from "./SimpleURLRedirect";
 import * as QueryString from "query-string"
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+} from "react-router-dom";
+import DelayedURLRedirect from "./DelayedURLRedirect";
 
-interface Props extends RouteComponentProps{
+function URLRedirect(props: RouteComponentProps) {
+    return (
+    <Router>
+        <div>
+            <ul>
+                <li>
+                    <Link to="/simpleUrlRedirect?url=https://www.baidu.com/">SimpleURLRedirect</Link>
+                </li>
+                <li>
+                    <Link to="/delayedUrlRedirect?url=https://www.baidu.com/">DelayedRedirect</Link>
+                </li>
+            </ul>
+
+            <Switch>
+                <Route path="/simpleUrlRedirect">
+                    <SimpleURLRedirect/>
+                </Route>
+                <Route path="/delayedUrlRedirect">
+                    <DelayedURLRedirect/>
+                </Route>
+            </Switch>
+        </div>
+    </Router>
+    )
 }
-
-class URLRedirect extends React.Component<Props, any>{
-    render()  {
-        console.log(this.props.location.search);
-        const url:string=QueryString.parse(this.props.location.search).url as string;
-        window.location.href = url;
-        return <div>Redirecting</div>;
-    }
-}
-
-// 导出带有路由信息的component，此时router会把路由信息传到component中
-
 export default withRouter(URLRedirect);

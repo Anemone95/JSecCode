@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import ReflectedXSS from "./xss/ReflectedXSS";
-import URLRedirect from "./urlredirect/URLRedirect";
+import UrlRedirect from "./urlredirect/URLRedirect";
 import {
     BrowserRouter as Router,
     Switch,
@@ -21,7 +21,7 @@ ReactDOM.render(
                       <Link to="/xss?path=111">XSS</Link>
                   </li>
                   <li>
-                      <Link to="/urlredirect?url=https://www.baidu.com/">URL Redirect</Link>
+                      <Link to="/urlredirect">URL Redirect</Link>
                   </li>
               </ul>
 
@@ -30,7 +30,7 @@ ReactDOM.render(
                       <ReflectedXSS/>
                   </Route>
                   <Route path="/urlredirect">
-                      <URLRedirect/>
+                      <UrlRedirect/>
                   </Route>
               </Switch>
           </div>
