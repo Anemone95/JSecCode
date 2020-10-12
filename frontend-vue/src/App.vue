@@ -22,6 +22,8 @@
     <router-link :to="{name:'BAC'}">BAC(Bad Access Control)</router-link>
     <br/>
     <router-link :to="{name:'Prototype'}">Prototype</router-link>
+    <br/>
+    <router-link :to="{name:'PostMessage'}">PostMessage</router-link>
     <hr>
     <router-view/>
   </div>

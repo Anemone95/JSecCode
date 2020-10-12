@@ -22,6 +22,9 @@ import BAC from "@/components/BAC";
 import Prototype from "@/components/prototype/Prototype";
 import SimpleProto from "@/components/prototype/SimpleProto";
 import Lodash from "@/components/prototype/Lodash";
+import PostRedirectReceiver from "../components/postmessage/PostRedirectReceiver";
+import PostRedirectSender from "../components/postmessage/PostRedirectSender";
+import PostMessage from "../components/postmessage/PostMessage";
 
 Vue.use(Router)
 
@@ -137,6 +140,23 @@ export default new Router({
           path: '/prototype/Lodash',
           name: 'Lodash',
           component: Lodash
+        }
+      ]
+    },
+    {
+      path: '/postmessage',
+      name: 'PostMessage',
+      component: PostMessage,
+      children: [
+        {
+          path: '/postmessage/PostRedirectSender',
+          name: 'PostRedirectSender',
+          component: PostRedirectSender
+        },
+        {
+          path: '/prototype/PostRedirectReceiver',
+          name: 'PostRedirectReceiver',
+          component: PostRedirectReceiver
         }
       ]
     },

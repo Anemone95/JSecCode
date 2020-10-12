@@ -1,6 +1,6 @@
 # frontend
 
-> A Vue.js project
+> A Vue.js/react/rax project
 
 ## Build Setup
 

